@@ -10,6 +10,7 @@ class ReviewAdmin(admin.ModelAdmin):
         (None, {'fields': ('book', 'user', 'rating', 'comment')}),
         ('Timestamp', {'fields': ('created_at',)}),
     )
+    readonly_fields = ('created_at', )
     ordering = ('-created_at',)
 
 
