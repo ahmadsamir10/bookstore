@@ -1,0 +1,11 @@
+# Application
+# ------------------------------------------------------------------------------
+SECRET_KEY = "GXMni3J6[,sd0@4<.NAr}+TFY^m|b!,P_5)&ixxUgZoxQKTQQ(>7]&_E)E<V=O"
+DEBUG = True
+ALLOWED_HOSTS = "localhost,127.0.0.1"
+
+# Super User
+DJANGO_SUPERUSER_USERNAME=admin
+DJANGO_SUPERUSER_EMAIL=admin@gmail.com
+DJANGO_SUPERUSER_PASSWORD=admin123
+

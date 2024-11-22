@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: ./entrypoint.sh
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file:
+      - ./.envs/.django
+      - ./.envs/.postgres
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/bookstore/data
+    env_file:
+      - ./.envs/.postgres
+
+volumes:
+  pg_data:
