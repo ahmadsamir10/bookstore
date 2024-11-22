@@ -26,6 +26,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         return value
 
     def create(self, validated_data):
+        # Make sure the user type for the registered user will be client
+        validated_data.update({"user_type": "client"})
+
         user = User.objects.create_user(**validated_data)
         return user
 
