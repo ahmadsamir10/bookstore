@@ -1,3 +1,4 @@
+import bleach
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
@@ -24,3 +25,10 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Review by {self.user} for {self.book.title}"
+
+    def save(self, *args, **kwargs):
+        # Sanitize the comment field using bleach before saving
+        if self.comment:
+            self.comment = bleach.clean(
+                self.comment, tags=['b', 'i', 'u', 'em', 'strong'], attributes={}, strip=True)
+        super().save(*args, **kwargs)
