@@ -2,7 +2,8 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, Group
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-
+from django.core.validators import MinLengthValidator
+from users.validators import validate_name, validate_username
 from users.managers import CustomUserManager
 
 
@@ -16,11 +17,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     Custom User model to handle different user types.
     """
     first_name = models.CharField(
-        max_length=64, blank=True, null=True, verbose_name=_("First Name"))
+        max_length=64, blank=True, null=True, verbose_name=_("First Name"), validators=[validate_name, MinLengthValidator(3)])
     last_name = models.CharField(
-        max_length=64, blank=True, null=True, verbose_name=_("Last Name"))
+        max_length=64, blank=True, null=True, verbose_name=_("Last Name"), validators=[validate_name, MinLengthValidator(3)])
     username = models.CharField(
-        max_length=150, unique=True, verbose_name=_("Username"))
+        max_length=150, unique=True, verbose_name=_("Username"), validators=[validate_username, MinLengthValidator(3)])
     email = models.EmailField(unique=True, verbose_name=_("Email Address"))
     user_type = models.CharField(
         _('User Type'), max_length=10, choices=UserType.choices, default='admin', db_index=True)
