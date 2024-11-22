@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from books.models import Book
-from reviews.apis.serializers import BookReviewSerializer
 
 
 # Book List Serializer
