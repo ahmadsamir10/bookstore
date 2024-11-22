@@ -19,7 +19,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pg_data:/var/lib/postgresql/bookstore/data
+      - pg_data:/var/lib/postgresql/bookstore
     env_file:
       - ./.envs/.postgres
 

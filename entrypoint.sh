@@ -8,13 +8,13 @@ done
 echo "PostgreSQL is up and running!"
 
 # Run database migrations
-# python manage.py migrate --no-input
+python manage.py migrate --no-input
 
 # Collect static files (for production only)
 # python manage.py collectstatic --no-input
 
 # Create superuser (if not created already)
-# python manage.py createsuperuser --noinput || echo "Superuser creation skipped or already exists"
+python manage.py createsuperuser --noinput || echo "Superuser creation skipped or already exists"
 
 # Start Django server
 python manage.py runserver 0.0.0.0:8000
