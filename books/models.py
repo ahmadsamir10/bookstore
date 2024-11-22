@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from books.managers import BookManager
 
 
 class Book(models.Model):
@@ -14,6 +15,8 @@ class Book(models.Model):
     published_date = models.DateField(
         verbose_name=_("Published Date"), default=timezone.now)
 
+    objects = BookManager()
+
     class Meta:
         verbose_name = _("Book")
         verbose_name_plural = _("Books")
@@ -21,3 +24,10 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def review_count(self):
+        """
+        Count all the reviews for a single book object
+        """
+        return self.reviews.count()

@@ -23,6 +23,7 @@ urlpatterns = [
 
 apis_urlpatterns = [
     path('', include('users.apis.urls'), name='users_urls'),
+    path('', include('books.apis.urls'), name='books_urls'),
 ]
 
 urlpatterns += apis_urlpatterns
