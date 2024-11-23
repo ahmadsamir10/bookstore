@@ -85,7 +85,7 @@ This command builds the Docker images and starts the services.
     Use the `add_book` command to add a book:
     
     ```bash
-    python manage.py add_book --title "1984" --author "George Orwell" --description "A dystopian novel." --content "The full content of the book." --published_date 1949-06-08
+    docker-compose exec -it web python manage.py add_book --title "1984" --author "George Orwell" --description "A dystopian novel." --content "The full content of the book." --published_date 1949-06-08
     
     ```
     
@@ -93,7 +93,7 @@ This command builds the Docker images and starts the services.
     Use the `add_fake_books` command to generate multiple books:
     
     ```bash
-    python manage.py add_fake_books 10
+    docker-compose exec -it web python manage.py add_fake_books 10
     
     ```
     
@@ -114,7 +114,6 @@ bookstore/
 ├── entrypoint.sh                # Entrypoint script for Docker
 ├── manage.py                    # Django management script
 ├── requirements.txt             # Python dependencies
-├── wait_for_db.sh               # Script to wait for the database to be ready
 
 ├── bookstore/                   # Main Django project folder
 │   ├── __init__.py
