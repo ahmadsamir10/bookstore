@@ -25,6 +25,7 @@ The Online Bookstore API enables users to browse, review, and manage books. It p
 -   **Performance & Security**:
     -   Implemented pagination for efficient data handling.
     -   Secured against XSS and SQL Injection using validation and sanitization (via the `bleach` library).
+    -   Implemented rate limiting for registration and login APIs to mitigate brute-force attacks and prevent abuse.
 -   **Test Coverage**:
     -   Comprehensive test cases for models, serializers, and views.
 
