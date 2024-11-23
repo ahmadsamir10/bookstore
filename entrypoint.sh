@@ -32,16 +32,15 @@ else
 fi
 
 # Step 4: Collect static files (for production only)
-# Uncomment this section if static files are needed
-# echo "========================================"
-# echo "Step 4: Collecting static files..."
-# echo "========================================"
-# if python manage.py collectstatic --no-input; then
-#   echo "✅ Static files collected successfully!"
-# else
-#   echo "❌ Collect static files failed. Exiting..."
-#   exit 1
-# fi
+echo "========================================"
+echo "Step 4: Collecting static files..."
+echo "========================================"
+if python manage.py collectstatic --no-input; then
+  echo "✅ Static files collected successfully!"
+else
+  echo "❌ Collect static files failed. Exiting..."
+  exit 1
+fi
 
 # Step 5: Create superuser (if not created already)
 echo "========================================"
