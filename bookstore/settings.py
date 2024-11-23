@@ -150,7 +150,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_THROTTLE_RATES': {
-        'registration': '5/hour',  # Specific rate for registration
+        'registration': '10/hour',  # Specific rate for registration
         'login': '10/hour',  # Specific rate for login
     }
 }
