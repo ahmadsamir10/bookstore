@@ -1,3 +1,4 @@
+
 # Online Bookstore API
 
 The Online Bookstore platform is built using Django and Django Rest Framework (DRF) to create a secure and efficient backend. PostgreSQL is used as the database for managing book, user, and review data, ensuring reliability and performance. The application is containerized with Docker and orchestrated using Docker Compose, enabling seamless deployment and scalability.
@@ -98,6 +99,9 @@ This command builds the Docker images and starts the services.
     
     ```
     
+### Logging Executed Queries
+
+**Enable Query Logging in Debug Mode**: To assist with debugging and performance optimization, you can log all executed database queries when ***DEBUG*** mode is enabled. This helps you identify inefficient queries, monitor the query count, and understand the database interactions in your application.
 
 ----------
 
